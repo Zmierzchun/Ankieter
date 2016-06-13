@@ -1,0 +1,18 @@
+default:
+    suites:
+        default:
+            path: '%paths.base%/features'
+            contexts: [Behat\MinkExtension\Context\MinkContext]
+        app:
+            type: symfony_bundle
+            bundle: 'AppBundle'
+            contexts: ['AppBundle\Features\Context\WebContext']
+    extensions:
+        Behat\Symfony2Extension: ~
+        Behat\MinkExtension:
+            default_session: 'symfony2'
+            sessions:
+                symfony2:
+                    symfony2: ~
+    autoload:
+        '': '%paths.base%/src'
